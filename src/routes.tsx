@@ -6,19 +6,23 @@ import { AuthLayout } from "./pages/_layouts/auth";
 
 export const router = createBrowserRouter([
   {
-    path: '/', element: <AppLayout />,
+    path: "/",
+    element: <AppLayout />,
     children: [
-  {
-    path: '/', element: <Dashboard />
+      {
+        path: "/",
+        element: <Dashboard />,
+      },
+    ],
   },
-    ]
-  }, 
   {
-    path: '/sign-in', element: <AuthLayout />,
+    path: "/sign-in",
+    element: <AuthLayout />,
     children: [
-  {
-    path: '/sign-in', element: <SignIn />
+      {
+        path: "/sign-in",
+        element: <SignIn />,
+      },
+    ],
   },
-    ]
-  },
-])
+]);
