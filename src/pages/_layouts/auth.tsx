@@ -15,7 +15,7 @@ export function AuthLayout() {
       </div>
       {/* <h1>Autenticação</h1> */}
 
-      <div className="flex flex-col items-center justify-center">
+      <div className="relative flex flex-col items-center justify-center">
         <Outlet />
       </div>
     </div>
