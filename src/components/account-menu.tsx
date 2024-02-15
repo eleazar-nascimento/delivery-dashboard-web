@@ -18,7 +18,7 @@ export function AccountMenu() {
           variant="outline"
           className="flex select-none items-center gap-2"
         >
-          Dashboard Shop
+          Delivery Shop
           <ChevronDown className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
