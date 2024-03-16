@@ -11,7 +11,7 @@ type GetProfileResponse = {
 }
 
 export async function getProfile(): Promise<GetProfileResponse> {
-  const { data } = await api.get('/me')
+  const { data } = await api.get<GetProfileResponse>('/me')
 
   return data
 }
