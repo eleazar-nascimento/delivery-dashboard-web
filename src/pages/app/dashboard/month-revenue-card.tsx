@@ -1,14 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
 import { DollarSign } from 'lucide-react'
 
-import { GetMonthRevenue } from '@/api/get-month-revenue'
+import { getMonthRevenue } from '@/api/get-month-revenue'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 export function MonthRevenueCard() {
   const { data: monthRevenue } = useQuery({
-    queryFn: GetMonthRevenue,
+    queryFn: getMonthRevenue,
     queryKey: ['metrics', 'month-revenue'],
   })
+
   return (
     <Card>
       <CardHeader className="flex-row items-center justify-between space-y-0 pb-2">
