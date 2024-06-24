@@ -5,6 +5,7 @@ import { z } from 'zod'
 
 import { getOrders } from '@/api/get-orders'
 import { Pagination } from '@/components/old-pagination'
+import { OrderTableSkeleton } from '@/components/skeletons/order-table-skeleton'
 import {
   Table,
   TableBody,
@@ -28,7 +29,7 @@ export function Orders() {
     .transform((page) => page - 1)
     .parse(searchParams.get('page') ?? '1')
 
-  const { data: result } = useQuery({
+  const { data: result, isLoading: isLoadingOrders } = useQuery({
     queryKey: ['orders', pageIndex, orderId, customerName, status],
     queryFn: () =>
       getOrders({
@@ -70,6 +71,8 @@ export function Orders() {
               </TableRow>
             </TableHeader>
             <TableBody>
+              {isLoadingOrders && <OrderTableSkeleton />}
+
               {result &&
                 result.orders.map((order) => {
                   return <OrderTableRow key={order.orderId} order={order} />
