@@ -5,6 +5,7 @@ import { ptBR } from 'date-fns/locale'
 
 import { getOrderDetails } from '@/api/get-order-details'
 import { OrderStatus } from '@/components/order-status'
+import { OrderDetailsSkeleton } from '@/components/skeletons/order-details-skeleton'
 import {
   DialogContent,
   DialogHeader,
@@ -42,7 +43,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
         <DialogTitle>Pedido: {orderId}</DialogTitle>
         <DialogDescription>Detalhes do pedido</DialogDescription>
       </DialogHeader>
-      {order && (
+      {order ? (
         <div className="space-y-6">
           <Table>
             <TableBody>
@@ -135,6 +136,8 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
             </TableFooter>
           </Table>
         </div>
+      ) : (
+        <OrderDetailsSkeleton />
       )}
     </DialogContent>
   )
